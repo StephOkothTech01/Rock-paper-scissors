@@ -1,0 +1,58 @@
+import random
+user_wins=0
+computer_wins=0
+draws=0
+while True:
+    user=input('rock paper or scissors:').lower()
+    if user not in ['rock','paper','scissors']:
+        print('Invalid choice. Try again')
+        continue
+    
+    computer_choice=['rock','paper','scissors']
+    computer=random.choice(computer_choice)
+    print('Computer:',computer)
+    print('User:',user)
+    if user=='rock':
+        if computer=='paper':
+            print('You lose')
+            computer_wins+=1
+        elif computer=='scissors':
+            print('You win')
+            user_wins+=1
+        else:
+            print('Draw')
+            draws+=1
+    elif user=='paper':
+        if computer=='scissors':
+            print('You lose')
+            computer_wins+=1
+        elif computer=='rock':
+            print('You win')
+            user_wins+=1
+        else:
+            print('Draw')
+            draws+=1
+    elif user=='scissors':
+        if computer=='paper':
+            print('You win')
+            user_wins+=1
+        elif computer=='rock':
+            print('You lose')
+            computer_wins+=1
+        else:
+           print('Draw')
+           draws+=1
+    play=input('Play again, Yes/No:').lower()
+    if play!='yes':
+      print('Thank you for playing')
+      break  
+print('\n FINAL SCORE')
+print('Computer wins:',computer_wins) 
+print('User wins',user_wins)
+print('Draws',draws)
+if user_wins>computer_wins:
+    print('\n You are the winner')
+elif computer_wins>user_wins:
+    print('\n Computer is the winner')
+else:
+    print('\n Draw')
